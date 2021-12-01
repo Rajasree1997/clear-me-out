@@ -1,10 +1,17 @@
-import { Link } from "react-router-dom"
+import CategoryCard from "../../Components/CategoryCard"
 
 const Home = () => {
     return (
-        <div>
-            <h1>home</h1>
-            <Link to="category">HELLO</Link>
+        <div className="container">
+            <div className="category-container">
+        <CategoryCard/>
+        <CategoryCard/>
+        <CategoryCard/>
+        <CategoryCard/>
+        <CategoryCard/>
+        <CategoryCard/>
+            </div>
+            
         </div>
     )
 }
