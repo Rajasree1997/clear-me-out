@@ -2,15 +2,13 @@
   margin: 0;
   box-sizing: border-box;
 }
-html,body,#root{
+html,body,#root,.App{
   height: 100%;
 }
 .App{
-  /* padding: 15px; */
-  /* background-color: black; */
   background-color: #E5E5E5;
- 
-  margin: auto;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 header{
   background-color: white;
@@ -29,6 +27,10 @@ header .container{
   
 
   
+}
+
+.body_container{
+  overflow: auto;
 }
 .page-section{
   /* background-image:linear-gradient(to right,red,orange,yellow,green,blue,indigo,violet); */
@@ -65,7 +67,7 @@ margin: auto;
 }
 .category_card{
   box-shadow:4px 4px 4px rgba(80, 80, 80, 0.15);
-  
+
 }
 p{
   display: -webkit-box;
