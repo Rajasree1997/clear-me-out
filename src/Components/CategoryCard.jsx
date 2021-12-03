@@ -1,12 +1,12 @@
-import CategoryImage  from "../assets/icons/CategoryImage.png"
 
-const CategoryCard = () => {
+
+const CategoryCard = ({image,title,description}) => {
     return (
         <div className="category_card">
-            <img src={CategoryImage} alt=""/>
+            <img src={image} alt={title}/>
             <div className="details_section">
-                <h2>TITLE</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae harum cumque pariatur architecto ipsam blanditiis enim ducimus nulla, quis totam ad suscipit eos quasi repellat iste iure eveniet nobis debitis?</p>
+                <h2>{title}</h2>
+                <p>{description}</p>
             </div>
             
         </div>

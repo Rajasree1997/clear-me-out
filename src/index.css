@@ -1,6 +1,7 @@
 *{
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 html,body,#root,.App{
   height: 100%;
@@ -14,6 +15,9 @@ header{
   background-color: white;
   box-shadow: 0px 4px 4px 4px rgba(79, 79, 79, 0.15);
 }
+/* body{
+  background-color: #E5E5E5;
+} */
 
 
 header .container{
@@ -31,6 +35,7 @@ header .container{
 
 .body_container{
   overflow: auto;
+  
 }
 .page-section{
   /* background-image:linear-gradient(to right,red,orange,yellow,green,blue,indigo,violet); */
@@ -78,15 +83,26 @@ p{
 }
 
 .category_card img{
+  display: block;
   width: 100%;
 }
 h2{
-  text-align: center;
+  overflow: hidden;
+  line-height: 35px;
+  font-size: 25px;
+  height: 35px;
+  text-overflow: ellipsis;
+
+
 }
 .details_section{
   background-color: white;
   padding: 15px ;
 }
+.image_section img{
+  padding: 20px;
+}
+
 @media screen and (max-width: 600px)
 {
   .category-container{
