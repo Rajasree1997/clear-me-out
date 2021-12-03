@@ -4,7 +4,7 @@ import Pencil from "../../assets/icons/Vector.svg"
 import Eye from "../../assets/icons/Group.svg"
 import "./categorystyle.css"
 
-const category = () => {
+const Category = () => {
     return (
         <div className="category_container">
             <div className="upper_section">
@@ -83,4 +83,4 @@ const category = () => {
     )
 }
 
-export default category
+export default Category
