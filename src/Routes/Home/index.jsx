@@ -1,6 +1,7 @@
 import CategoryCard from "../../Components/CategoryCard"
 import CategoryImage  from "../../assets/icons/CategoryImage.png"
 
+
 const categoryList = [
 {
     image:CategoryImage,

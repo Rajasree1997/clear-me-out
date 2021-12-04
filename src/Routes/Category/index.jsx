@@ -3,8 +3,10 @@ import CategoryImage  from "../../assets/icons/CategoryImage.png"
 import Pencil from "../../assets/icons/Vector.svg"
 import Eye from "../../assets/icons/Group.svg"
 import "./categorystyle.css"
+import { useParams } from "react-router-dom"
 
 const Category = () => {
+    const params=useParams();
     return (
         <div className="category_container">
             <div className="upper_section">
@@ -12,7 +14,7 @@ const Category = () => {
                     <img src={CategoryImage} alt="image"/>
                 </div>
                     <div className="right_section">
-                        <h1>Electronics</h1>
+                        <h1>{params.title}</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, molestiae. Laboriosam assumenda dolor nostrum distinctio tempore neque nihil sapiente! Obcaecati, voluptatibus. Inventore vel unde dolorum. Velit voluptatibus nulla quaerat perferendis.</p>
                         <h2>Keys</h2>
                         <div className="stylebutton">

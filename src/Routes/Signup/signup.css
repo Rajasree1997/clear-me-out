@@ -1,0 +1,60 @@
+.signupcontainer_page{
+    padding: 30px;
+}
+.signing-title{
+    text-align: center;
+    font-size: 34px;
+    color: #0080A8;
+    padding: 20px;
+}
+.signupcontainer{
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 50px;
+    height: 100%;
+    
+}
+.inputform{
+    max-width: 350px;
+    margin: 30px auto;
+    position: relative;
+    
+    
+}
+.inputform input{
+    width: 100%;
+    height: 35px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: solid 1px #474747 ;
+}
+.inputfield{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    background-color: white;
+    padding: 5px;
+    transition: 0.3s ease-in-out;
+    
+    
+}
+.signing{
+    background: #0080A8;
+    border-radius: 10px;
+    color: #FFFFFF;
+    padding: 5px 50px;
+    border: none;
+    font-size: 32px;
+    margin-top: 20px;
+}
+.inputform input:focus + .inputfield{
+    top: 0;
+    font-size: 14px;
+    left: 5px;
+    /* type cheyyumpo placeholdertext mele borderil varan */
+}
+
+
+
