@@ -1,4 +1,6 @@
 import "./signup.css"
+import {useState} from "react"
+import InputField from "../../Components/InputField";
 const Signup = () => {
     const [formData,setFormData]=useState({
         fullName:"",
@@ -6,26 +8,39 @@ const Signup = () => {
         password:"",
         confirmPassword:""
     });
-    console.log(formData);
+    
+    const{fullName,email,password,confirmPassword}=formData;
+    const onChange=(key,value)=>{
+    setFormData({...formData,
+    [key]:value
+    })
+}
+
     return (
     <div className="signupcontainer_page">
     <div className="signupcontainer">   
     <div className="signing-title">Sign Up</div>
     <form>
-    <div className="inputform">
-    <input type="text"/>
-    <div className="inputfield">Full Name</div>
-    </div>
-    <div className="inputform">
-    <input type="text"/>
-    <div className="inputfield">Email</div></div>
-    <div className="inputform">
-    <input type="text"/>
-    <div className="inputfield">Password</div></div>
-    <div className="inputform">
-    <input type="text"/>
-    <div className="inputfield">Confirm Password</div>
-    </div>
+        <InputField
+        value={fullName}
+            onChange={(value)=>onChange("fullName",value)}
+            label ="Full Name"/>
+            <InputField
+        value={email}
+            onChange={(value)=>onChange("email",value)}
+            label ="Email"/>
+            <InputField
+        value={password}
+            onChange={(value)=>onChange("password",value)}
+            label ="Password"
+            type="password"/>
+            
+            <InputField
+        value={confirmPassword}
+            onChange={(value)=>onChange("confirmPassword",value)}
+            label ="Confirm Password"
+            type="password"/>
+    
     <button className="signing">Sign up</button>
     </form>
     </div>

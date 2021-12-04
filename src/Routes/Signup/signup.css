@@ -49,7 +49,7 @@
     font-size: 32px;
     margin-top: 20px;
 }
-.inputform input:focus + .inputfield{
+.inputform input:focus + .inputfield ,.filled_inputfield{
     top: 0;
     font-size: 14px;
     left: 5px;
