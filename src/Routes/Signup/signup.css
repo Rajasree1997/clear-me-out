@@ -1,5 +1,6 @@
 .signupcontainer_page{
     padding: 30px;
+    min-height: 100%;
 }
 .signing-title{
     text-align: center;
@@ -10,7 +11,7 @@
 .signupcontainer{
     background-color: #FFFFFF;
     text-align: center;
-    padding: 50px;
+    padding: 30px;
     height: 100%;
     
 }
@@ -48,12 +49,18 @@
     border: none;
     font-size: 32px;
     margin-top: 20px;
+    cursor: pointer;
 }
 .inputform input:focus + .inputfield ,.filled_inputfield{
     top: 0;
     font-size: 14px;
     left: 5px;
     /* type cheyyumpo placeholdertext mele borderil varan */
+}
+.text_feild_error_text{
+    color: red;
+    position: absolute;
+    top: calc(100% + 5px);
 }
 
 
