@@ -1,6 +1,8 @@
 import "./signup.css"
 import {useState} from "react"
 import InputField from "../../Components/InputField";
+import { isValidEmail,isValidName,isValidPassword  } from "../../Utility/validation";
+
 const Signup = () => {
     const [formData,setFormData]=useState({
         fullName:"",
@@ -24,21 +26,47 @@ const Signup = () => {
     })
     }
     const onError=(key,value)=>{
-        setFormErrorData({...formErrorData,
+        setFormErrorData(prev=>({...prev,
         [key]:value
-        })
+        }))
         }
     const signupCall=(e)=>{
         e.preventDefault();
+        
         if(!confirmPassword){
             onError("confirmPasswordError","Confirm Your Password");
         }else{
             if(password !==confirmPassword){
             onError("confirmPasswordError","Password Miss Match !")
 
-        }else{
-            onError("confirmPasswordError","")
+            }else{
+                onError("confirmPasswordError","")
+            }
         }
+
+        if(!isValidEmail(email)){
+            onError("emailError","Enter Valid Email");
+        }
+        else{
+            onError("emailError","");
+        }
+        if(!isValidName(fullName)){
+            onError("fullNameError","Enter valid Name");
+        }
+        else{
+            onError("fullNameError","");
+        }
+        if(!password){
+            onError("passwordError","password can't be empty");
+        }
+        else{
+           
+            if(!isValidPassword(password)){
+                onError("passwordError","Password must contain 8 characters");
+            }
+            else{
+                onError("passwordError","")
+            }
         }
     }
 
@@ -50,16 +78,19 @@ const Signup = () => {
         <InputField
             value={fullName}
             onChange={(value)=>onChange("fullName",value)}
-            label ="Full Name"/>
+            label ="Full Name"
+            error={fullNameError}/>
         <InputField
             value={email}
             onChange={(value)=>onChange("email",value)}
-            label ="Email"/>
+            label ="Email"
+            error={emailError}/>
         <InputField
             value={password}
             onChange={(value)=>onChange("password",value)}
             label ="Password"
-            type="password"/>
+            type="password"
+            error={passwordError}/>
             
         <InputField
             value={confirmPassword}
