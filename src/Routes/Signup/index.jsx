@@ -1,5 +1,5 @@
 import "./signup.css"
-import {useState} from "react"
+import {useState,useEffect} from "react"
 import InputField from "../../Components/InputField";
 import { isValidEmail,isValidName,isValidPassword  } from "../../Utility/validation";
 
@@ -17,28 +17,31 @@ const Signup = () => {
         confirmPasswordError:""
     });
 
-    
+    const [isFormSubmitted,setIsFormSubmitted]=useState(false);
+    useEffect(()=>{
+        formValidate();},[formData])
+
     const{fullName,email,password,confirmPassword}=formData;
     const{fullNameError,emailError,passwordError,confirmPasswordError}=formErrorData;
     const onChange=(key,value)=>{
-    setFormData({...formData,
+        setFormData(prev=>({...prev,
     [key]:value
-    })
+    }))
     }
     const onError=(key,value)=>{
         setFormErrorData(prev=>({...prev,
         [key]:value
         }))
         }
-    const signupCall=(e)=>{
-        e.preventDefault();
-        
+    const formValidate =()=>{
+        let isValidForm = true;
         if(!confirmPassword){
             onError("confirmPasswordError","Confirm Your Password");
+            isValidForm=false;
         }else{
             if(password !==confirmPassword){
             onError("confirmPasswordError","Password Miss Match !")
-
+            isValidForm=false;
             }else{
                 onError("confirmPasswordError","")
             }
@@ -46,28 +49,44 @@ const Signup = () => {
 
         if(!isValidEmail(email)){
             onError("emailError","Enter Valid Email");
+            isValidForm=false;
         }
         else{
             onError("emailError","");
         }
         if(!isValidName(fullName)){
             onError("fullNameError","Enter valid Name");
+            isValidForm=false;
         }
         else{
             onError("fullNameError","");
         }
+
+        console.log(password);
         if(!password){
             onError("passwordError","password can't be empty");
+            isValidForm=false;
+            
         }
         else{
            
             if(!isValidPassword(password)){
                 onError("passwordError","Password must contain 8 characters");
+                isValidForm=false;
             }
             else{
                 onError("passwordError","")
             }
         }
+        return isValidForm;
+    }
+    const signupCall=(e)=>{
+        e.preventDefault();
+        setIsFormSubmitted(true);
+        if(formValidate()){
+           console.log("signup success");
+       } 
+        
     }
 
     return (
@@ -79,25 +98,29 @@ const Signup = () => {
             value={fullName}
             onChange={(value)=>onChange("fullName",value)}
             label ="Full Name"
-            error={fullNameError}/>
+            error={fullNameError}
+            isFormSubmitted={isFormSubmitted}/>
         <InputField
             value={email}
             onChange={(value)=>onChange("email",value)}
             label ="Email"
-            error={emailError}/>
+            error={emailError}
+            isFormSubmitted={isFormSubmitted}/>
         <InputField
             value={password}
             onChange={(value)=>onChange("password",value)}
             label ="Password"
             type="password"
-            error={passwordError}/>
+            error={passwordError}
+            isFormSubmitted={isFormSubmitted}/>
             
         <InputField
             value={confirmPassword}
             onChange={(value)=>onChange("confirmPassword",value)}
             label ="Confirm Password"
             type="password"
-            error={confirmPasswordError}/>
+            error={confirmPasswordError}
+            isFormSubmitted={isFormSubmitted}/>
     
     <button className="signing" type="submit">Sign up</button>
     </form>

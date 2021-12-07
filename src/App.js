@@ -9,6 +9,7 @@ import Ask from './Routes/Ask';
 import Post from './Routes/Post';
 import Feedback from './Routes/Feedback';
 import LayOut from './LayOut';
+import Demo from './demo/Demo';
 
 //home page
 // category page
@@ -32,6 +33,7 @@ function App() {
           <Route path="ask" element={<Ask/>}/>
           <Route path="post" element={<Post/>}/>
           <Route path="feedback" element={<Feedback/>}/>
+          <Route path="demo" element={<Demo/>}/>
        </Route>
 
       </Routes>
