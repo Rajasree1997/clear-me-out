@@ -45,7 +45,13 @@ const Signup = () => {
             }else{
                 onError("confirmPasswordError","")
             }
+        }if(!email){
+            onError("emailError","Email can't be empty");
+            isValidForm=false;
+            
         }
+        else{
+
 
         if(!isValidEmail(email)){
             onError("emailError","Enter Valid Email");
@@ -53,7 +59,7 @@ const Signup = () => {
         }
         else{
             onError("emailError","");
-        }
+        }}
         if(!isValidName(fullName)){
             onError("fullNameError","Enter valid Name");
             isValidForm=false;
