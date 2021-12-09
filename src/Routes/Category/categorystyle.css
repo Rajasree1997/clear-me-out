@@ -84,6 +84,7 @@ display: block;
     display: flex;
     gap: 5px;
 }
+
 .category-image_section img{
 display: block;
 width: 100%;

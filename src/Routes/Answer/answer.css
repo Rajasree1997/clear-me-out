@@ -1,0 +1,44 @@
+.questions_view{
+    padding: 30px;
+    
+}
+p{
+    margin-bottom: 20px;
+    
+}
+.questionpara{
+    font-weight: bold;
+    font-size: 20px;
+}
+.date_section{
+    display: flex;
+    gap: 5px;
+}
+.buttondiv{
+   
+    display: flex;
+    gap: 10px;
+}
+.circuits{
+    background: none;
+    border: 1px solid #474747;
+    box-sizing: border-box;
+    border-radius: 11px;
+    height: 30px;
+    width: 90px;
+   
+}
+.answers1, .number1{
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+.name{
+    font-weight: 500;
+font-size: 21px;
+line-height: 25px;
+padding-bottom: 10px;
+}
+.questions{
+    margin-left: 10px;
+    padding-left: 30px;
+}
