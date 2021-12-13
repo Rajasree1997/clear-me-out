@@ -1,13 +1,27 @@
-import { useState } from "react"
+import { useSelector,useDispatch } from "react-redux"
 
-const Counter = ({store}) => {
-    const[input,setInput]=useState("");
-    const addTodo=(value)=>{
-        store.dispatch({
-            type:"ADD_TODO",
-            value
-        })
-    }
+const Counter = () => {
+    const dispatch = useDispatch();
+  const count = useSelector(state=>state) ; 
+  console.log(count);
+    // const addTodo=(value)=>{
+    //     store.dispatch({
+    //         type:"ADD_TODO",
+    //         value
+    //     })
+    // }
+    // const deleteTodo=(index)=>{
+    //     store.dispatch({
+    //         type:"DELETE_TODO",
+    //         index
+    //     })
+    // }
+    // const sortTodo=(value)=>{
+    //     store.dispatch({
+    //         type:"SORT_TODO",
+    //         value
+    //     })
+    // }
 
     return (
         // <div className="main_container_count">
@@ -26,26 +40,25 @@ const Counter = ({store}) => {
             
         // </div>
         <div className="todo">
-            <div className="input_section">
-                <input type="text"
-                onChange={(e)=>{
-                    setInput(e.target.value)
-                }}/>
-                <button onClick={()=>{
-                    addTodo(input);
+            <button
+            onClick={()=>{
+                dispatch({
+                    type:"Increment"
+                })
+                
+            }}>+</button>
+           <div className="value">
+               {/* {store.getState()} */}{count}
+               
+               </div> 
+               <button
+            onClick={()=>{dispatch({
+                type:"Decrement"
+            })
+            
+                
+            }}>-</button>
 
-                }}>ADD</button>
-                </div>
-                <div className="todo_list">
-                    {
-                        store.getState().map((value,i)=><div key={i}>
-                            {value}
-                            <button onClick={()=>{
-                                addTodo()
-                            }}>close</button>
-                            </div>)
-                    }
-            </div>
         </div>
        
 

@@ -8,30 +8,34 @@ import {
 import './index.css';
 import App from './App';
 import {createStore} from "redux"
-
+import {Provider} from "react-redux"
 const reducer =(state=[],action)=>
 {
   //state was 0
     switch (action.type) {
-            case 'ADD_TODO':// case 'DECREMENT':
-             return[...state,action.value];//  return state-1
-            case 'DELETE_TODO'://  case 'INCREMENT':
-            return state;//  return state+1
-             
+            case 'Add_Todo':// case 'DECREMENT':
+             return [...state,action.value];//  return state-1
+           //  case 'INCREMENT':
+             //  return state+1
+            case 'Remove_Todo':
+              return state.filter((_value,i)=>i !==action.index)
              default:
              return state
                 } 
     
 }
 const store=createStore(reducer);
-const render=()=>{
+
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
-    <App store={store}/>
+    <App/>
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
-);}
-store.subscribe(render);
-render()
+);
+// }
+// store.subscribe(render);
+// render()

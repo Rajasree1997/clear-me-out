@@ -1,0 +1,40 @@
+.todo_add{
+    text-align: center;
+    padding-bottom:20px ;
+    padding: 20px;
+    
+}
+.todo_add input{
+    background-color: white;
+    border-radius: 10px;
+    
+    
+}
+.add{
+background: transparent;
+color: white;
+margin: 20px;
+}
+.main{
+    background-color:black ;
+    height: 100%;
+}
+.todoList{
+    color: white;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    
+}
+.remove{
+   
+}
+.value{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin: 20px;
+    text-align: left;
+    max-width: 200px;
+    width: 100%;
+}

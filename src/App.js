@@ -12,6 +12,8 @@ import LayOut from './LayOut';
 import Demo from './demo/Demo';
 import Answer from './Routes/Answer';
 import Counter from './Counter';
+import TodoRedex from './TodoRedex';
+// import Rajasree from './Rajasree';
 //home page
 // category page
 // question page
@@ -21,19 +23,21 @@ import Counter from './Counter';
 // post answer
 // feedback
 
-function App({store}) {
+function App() {
   return (
     
       <Routes>
         <Route path="" element={<LayOut/>}>
           <Route path="" element={<Home/>}/>
+          <Route path="todoredex" element={<TodoRedex/>}/>
           <Route path="category/:title" element={<Category/>}/>
           <Route path="question" element={<Question/>}/>
-          <Route path="counter" element={<Counter store={store}/>}/>
+          <Route path="counter" element={<Counter/>}/>
           <Route path="login" element={<Login/>}/>
           <Route path="signup" element={<Signup/>}/>
           <Route path="ask" element={<Ask/>}/>
           <Route path="post" element={<Post/>}/>
+          {/* <Route path="rajasree" element={<Rajasree/>}/> */}
           <Route path="feedback" element={<Feedback/>}/>
           <Route path="answer" element={<Answer/>}/>  
           <Route path="demo" element={<Demo/>}/>
