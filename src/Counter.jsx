@@ -2,7 +2,8 @@ import { useSelector,useDispatch } from "react-redux"
 
 const Counter = () => {
     const dispatch = useDispatch();
-  const count = useSelector(state=>state) ; 
+  const count = useSelector(state=>state.counter) ; 
+  //use this for further use/taking the value to another page
   console.log(count);
     // const addTodo=(value)=>{
     //     store.dispatch({

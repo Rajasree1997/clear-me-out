@@ -2,6 +2,7 @@ import "../Signup/signup.css"
 import {useState,useEffect} from "react"
 import InputField from "../../Components/InputField";
 import { isValidEmail,isValidPassword  } from "../../Utility/validation";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
     const [formData,setFormData]=useState({
@@ -69,11 +70,16 @@ const Login = () => {
         }
         return isValidForm;
     }
+    const dispatch = useDispatch();
+    
     const loginCall=(e)=>{
         e.preventDefault();
         setIsFormSubmitted(true);
         if(formValidate()){
-           console.log("login success");
+            dispatch({
+                type:"LoggedIn"
+            })
+           
        } 
         
     }

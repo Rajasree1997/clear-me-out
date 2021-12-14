@@ -5,7 +5,7 @@ import "./todoredex.css"
 const TodoRedex = () => {
     const [input,setInput]=useState("");
     const dispatch = useDispatch();
-    const todoList = useSelector(state=>state) ;
+    const todoList = useSelector(state=>state.todos) ;
     useEffect(() => {
         
         fetch("http://192.168.1.42:8086/todos/sree")
