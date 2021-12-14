@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux"
+import postData from "./service/postData";
 import "./todoredex.css"
 const TodoRedex = () => {
     const [input,setInput]=useState("");
     const dispatch = useDispatch();
     const todoList = useSelector(state=>state) ;
+    useEffect(() => {
+        
+        fetch("http://192.168.1.42:8086/todos/sree")
+        .then(response=>response.json())
+        .then(data=>{  
+            dispatch({
+                type:'create',
+                data: data[0].todos.map(value=>value.text)
+    
+            })
+        })
+        
+    }, [])
+   
     return (
         <div className="main">
         <div className="todo_add">
@@ -26,7 +41,7 @@ const TodoRedex = () => {
 
            <div className="todoList">
                {todoList.map((value,i)=>
-               <div className="value">{value}
+               <div key={i} className="value">{value}
                <button className="remove"
             onClick={()=>
                {dispatch({
